@@ -25,10 +25,25 @@ class EntryForm : AppCompatActivity() {
         var studentList = ArrayList<RFood>()
 
 
+
+//        btnSubmit.setOnClickListener(this)
+//        fun validate():Boolean{
+//            if (ffood.text.toString().isEmpty()){
+//                ffood.text.error = "enter your first favourite food"
+//                return false
+//            }else if (sfood.text.toString().isEmpty()){
+//                sfood.text.error =" Enter your second favourite Food"
+//                return false
+//            }
+//            return true
+//        }
+
         btnSubmit.setOnClickListener {
+
             vm.insertFood(Food(null,ffood.text.toString(),sfood.text.toString()))
             val myIntent = Intent(this,MainActivity::class.java)
             startActivity(myIntent)
+            Toast.makeText(application, "Item inserted", Toast.LENGTH_SHORT).show()
 
         }
 
@@ -36,9 +51,12 @@ class EntryForm : AppCompatActivity() {
             //vm.deleteFood(Food( foodId = null,ffood.text.toString(),sfood.text.toString()))
             var myIntent = Intent(this,MainActivity::class.java)
             startActivity(myIntent)
+            Toast.makeText(application, "Home page", Toast.LENGTH_SHORT).show()
+
         }
     }
 }
+
 
 
 

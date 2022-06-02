@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class FoodAdapter(private val  onCardClick: (position: Int) -> Unit,
                private val foodList: List<Food>):RecyclerView.Adapter<ViewHolder>(){
-
+    var countryFilterList = ArrayList<String>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //inflate
         val view = LayoutInflater.from(parent.context)
@@ -23,9 +23,11 @@ class FoodAdapter(private val  onCardClick: (position: Int) -> Unit,
         val itemVM = foodList[position]
         holder.ffood.text = itemVM.ffood
         holder.sfood.text = itemVM.sfood
+
     }
 
     override fun getItemCount(): Int {
+
         //size of the list/data source
         return foodList.size
     }
@@ -34,6 +36,7 @@ class ViewHolder(view: View, private val onCardClick:(position:Int)->Unit)
     :RecyclerView.ViewHolder(view), View.OnClickListener {
     init {
         itemView.setOnClickListener(this)
+
     }
 
     val ffood: TextView = view.findViewById(R.id.ffood)
