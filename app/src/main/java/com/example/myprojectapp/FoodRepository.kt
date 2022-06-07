@@ -24,6 +24,11 @@ class FoodRepository (context: Context) {
     fun deleteFood(food: Food) {
         db?.deleteFood(food)
     }
+//    fun search(name:String):List<Food>{
+//        return db?.search( "%" + name + "%")?: LiveData<List<Food>>()?
+//    }
+
+
 //    fun searchFood(food: Food){
 //        db?.searchfOOD(name: String): LiveDATA
 //    }

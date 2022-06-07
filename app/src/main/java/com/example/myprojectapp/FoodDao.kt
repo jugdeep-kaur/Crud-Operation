@@ -1,5 +1,6 @@
 package com.example.myprojectapp
 
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
@@ -23,6 +24,9 @@ interface FoodDao {
     //Delete
     @Delete
     fun deleteFood(food: Food)
+
+    @Query("select * from food where ffood like :name OR sfood like:name")
+    fun search(name:String):LiveData<List<Food>>
 
 
 //    @Query

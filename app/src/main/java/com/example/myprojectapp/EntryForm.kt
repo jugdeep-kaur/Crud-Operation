@@ -3,8 +3,10 @@ package com.example.myprojectapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 
 class EntryForm : AppCompatActivity() {
@@ -16,6 +18,8 @@ class EntryForm : AppCompatActivity() {
 
 
         vm = MainViewModel(application)
+       // var loader: ProgressBar = findViewById(R.id.loader)
+        var loader: ProgressBar = findViewById(R.id.loader)
 
         var ffood: EditText = findViewById(R.id.ffood)
         var sfood: EditText = findViewById(R.id.sfood)
@@ -39,8 +43,12 @@ class EntryForm : AppCompatActivity() {
 //        }
 
         btnSubmit.setOnClickListener {
+          //  loader.visibility = View.VISIBLE
+            loader.visibility =View.VISIBLE
 
             vm.insertFood(Food(null,ffood.text.toString(),sfood.text.toString()))
+
+
             val myIntent = Intent(this,MainActivity::class.java)
             startActivity(myIntent)
             Toast.makeText(application, "Item inserted", Toast.LENGTH_SHORT).show()
@@ -48,6 +56,7 @@ class EntryForm : AppCompatActivity() {
         }
 
         cancel.setOnClickListener() {
+            loader.visibility = View.VISIBLE
             //vm.deleteFood(Food( foodId = null,ffood.text.toString(),sfood.text.toString()))
             var myIntent = Intent(this,MainActivity::class.java)
             startActivity(myIntent)
