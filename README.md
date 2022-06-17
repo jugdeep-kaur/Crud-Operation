@@ -1,14 +1,14 @@
 # Crud-Operation
-#Project Description
+# Project Description
 This application demonstrated use of Room persistence storage with create, read, update and delete operation. 
 
-#Technologies Used
+# Technologies Used
 Kotlin
 Android Studio
 RoomDB
 RecyclerView
 
-#Features
+# Features
 Search for text in Searchview
 Data showed in RecyeclerView
 MVVM apporach used  for  clean architecture
